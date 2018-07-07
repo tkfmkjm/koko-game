@@ -9,5 +9,6 @@ https://takafumikojima.com/portfolio/koko/
 
 # Alpha Picker
 Javascript to get a pixel's alpha value of an image. Made by escapism.
-https://github.com/escapism/AlphaPicker
+
+https://github.com/escapism/AlphaPicker <br>
 http://utsutsunogare.com/alphapicker/
