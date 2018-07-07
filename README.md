@@ -1,4 +1,4 @@
-# koko-game
+# KOKO
 Koko is a web-base spot-differences game that is inspired by a game it was popular in Japanese TV show about a decade ago.
 
 # What is it?
