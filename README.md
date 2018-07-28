@@ -3,6 +3,7 @@
 - Show text-instruction (message) and image without scrolling
 - Make template with php
 - Better player experience without cheat
+- Admin functions: add new images
 
 # KOKO
 Koko is a web-base spot-differences game that is inspired by a game it was popular in Japanese TV show about a decade ago.
