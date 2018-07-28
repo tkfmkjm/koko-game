@@ -1,3 +1,6 @@
+# Help!
+It doesn't work properly, when a user change display size after DOM is loaded. Let me know if you know how to fix it!
+
 # KOKO
 Koko is a web-base spot-differences game that is inspired by a game it was popular in Japanese TV show about a decade ago.
 
