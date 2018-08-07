@@ -1,6 +1,8 @@
 # Updates
 
 # ToDo
+- Restart can be clicking the entire image?
+- "Re"start button
 - Score and how many time the player try
 - [Fiexed] It doesn't work properly, when a user change display size after DOM is loaded. Let me know if you know how to fix it!
 - Show text-instruction (message) and image without scrolling
