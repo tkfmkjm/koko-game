@@ -1,5 +1,5 @@
 # ToDo
-- It doesn't work properly, when a user change display size after DOM is loaded. Let me know if you know how to fix it!
+- [Fiexed] It doesn't work properly, when a user change display size after DOM is loaded. Let me know if you know how to fix it!
 - Show text-instruction (message) and image without scrolling
 - Make template with php
 - Better player experience without cheat
