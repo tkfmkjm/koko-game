@@ -2,7 +2,7 @@
 
 Koko Main JavaScript
 by Takafumi Kojima
-jQuery version:
+jQuery version: 
 
 */
 
@@ -13,6 +13,36 @@ $(function () {
   $('img').attr('onmousedown', 'return false');
   $('img').attr('onselectstart', 'return false');
   $('img').attr('oncontextmenu', 'return false');
+});
+
+/***************************
+Social Media Share Links
+****************************/
+$(function () {
+  var url = document.URL;
+  var encodedurl = encodeURIComponent(document.URL);
+  var title = document.title;
+  var encodedtitle = encodeURIComponent(document.title);
+
+  //Twitter
+  var twitter = jQuery(".socialTw").attr("href");
+  twitter = "https://twitter.com/intent/tweet?url=" + encodedurl + "&text=" + encodedtitle;
+  jQuery("a.socialTw").attr("href", twitter);
+
+  //Facebook
+  var facebook = jQuery("a.socialFb").attr("href");
+  facebook = "https://www.facebook.com/sharer/sharer.php?u=" + url;
+  jQuery("a.socialFb").attr("href", facebook);
+
+  //LINE
+  var line = jQuery("a.socialLi").attr("href");
+  line = "http://line.me/R/msg/text/?" + title + url;
+  jQuery("a.socialLi").attr("href", line);
+
+  //Google+
+  var googlePlus = jQuery("a.socialGp").attr("href");
+  googlePlus = "https://plusone.google.com/_/+1/confirm?hl=ja&url=" + url + "&text=" + title;
+  jQuery("a.socialGp").attr("href", googlePlus);
 });
 
 /***************************
@@ -69,7 +99,7 @@ setTimeout(function () {
 
 
 /***************************
-Core function
+Detecting Alpha of PNG images
 ****************************/
 function getPixelDataOfImg(img, event) {
   let canvas = document.createElement('canvas');
@@ -80,7 +110,7 @@ function getPixelDataOfImg(img, event) {
 }
 
 /***************************
-Run at load
+Core Function (Runs at Load)
 ****************************/
 window.onload = function () {
 
@@ -104,7 +134,7 @@ window.onload = function () {
       $('#instruction').text("Wrong! Tap the picture to retry.");
 
     } else {
-      console.log("Need Start Game");
+      console.log("Game hasn't started.");
     }
 
     console.log("PixelData(alpha):", PixelData);
@@ -115,7 +145,7 @@ window.onload = function () {
 }
 
 /***************************
-Loading Screen transition
+Loading Screen Transition
 ****************************/
 $(window).on('load', function () {
   $(function () {
@@ -226,36 +256,6 @@ $(function () {
 });
 
 /***************************
-Social Media Share Links
-****************************/
-$(function () {
-  var url = document.URL;
-  var encodedurl = encodeURIComponent(document.URL);
-  var title = document.title;
-  var encodedtitle = encodeURIComponent(document.title);
-
-  //Twitter
-  var twitter = jQuery(".socialTw").attr("href");
-  twitter = "https://twitter.com/intent/tweet?url=" + encodedurl + "&text=" + encodedtitle;
-  jQuery("a.socialTw").attr("href", twitter);
-
-  //Facebook
-  var facebook = jQuery("a.socialFb").attr("href");
-  facebook = "https://www.facebook.com/sharer/sharer.php?u=" + url;
-  jQuery("a.socialFb").attr("href", facebook);
-
-  //LINE
-  var line = jQuery("a.socialLi").attr("href");
-  line = "http://line.me/R/msg/text/?" + title + url;
-  jQuery("a.socialLi").attr("href", line);
-
-  //Google+
-  var googlePlus = jQuery("a.socialGp").attr("href");
-  googlePlus = "https://plusone.google.com/_/+1/confirm?hl=ja&url=" + url + "&text=" + title;
-  jQuery("a.socialGp").attr("href", googlePlus);
-});
-
-/***************************
 Retry Button
 ****************************/
 $(function () {
@@ -319,45 +319,38 @@ $(function () {
 }); // end of retry button
 
 /***************************
-Score
+Scoring System
 ****************************/
-//Wrong Area Selected
+
 $(function () {
+  
+  tryTimes = 0;
   countWrong = 0;
   countCorrect = 0;
+
+  //Wrong Area Selected
   $("#frame").click(function () {
     // If wrong area is clicked after game started add 1 to countWong
     if (startFinish == 1) {
       $("#frame").data("hitWrong", countWrong = 1);
+      $("#frame").data("hitWrong", countWrong = 1);
+      $("#frame").data("try", tryTimes = tryTimes + 1);
       console.log('C:', countCorrect, 'W:', countWrong, 'ON:', startFinish);
-
-      // // And if wrong area is clicked
-      // if (countCorrect == 0 && countWrong >= 1 && startFinish == 1) {
-      //   console.log('C:', countCorrect, 'W:', countWrong, 'ON:', startFinish);
-      // }
-      // return false;
-
-    } //end of if statement
+      console.log('Score:', tryTimes);
+    }
     return false; //for the if statement
   }); // end of click function
 
-  //Right Area Selected
   $(function () {
+ //Right Area Selected
     $("#frame").click(function () {
       // If right area is clicked after game started add 1 to countWong
       if (startFinish == 1) {
         $("#frame").data("hitCorrect", countCorrect = 1);
         console.log('C:', countCorrect, 'W:', countWrong, 'ON:', startFinish);
-
-        // // And if right area is clicked
-        // if (countCorrect == 1 && countWrong == 0 && startFinish == 1) {
-        //   console.log('C:', countCorrect, 'W:', countWrong, 'ON:', startFinish);
-        // }
-        // return false;
-
-      } //end of if statement
+      }
       return false; //for the if statement
-    }); // end of click function
+    }); // end of click function 
   });
 
-});
+});false
